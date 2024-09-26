@@ -59,12 +59,3 @@ Response:
     "sentiment": "Positive"
 }
 ```
-## 7. License
-This project is licensed under the MIT License. See the LICENSE file for details.
-### Customization
-- **Repository URL**: Change the `git clone` link to your GitHub repository URL.
-- **Dependencies**: Add any additional dependencies in the `requirements.txt` file and mention them in the README.
-- **Instructions**: Modify instructions based on your setup or any specific configurations you might have.
-
-Feel free to tweak the content to better suit your project’s unique aspects!
-
