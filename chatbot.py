@@ -2,13 +2,15 @@ from flask import Flask, request, jsonify, render_template
 from transformers import BertTokenizer, TFBertForSequenceClassification
 import tensorflow as tf
 import numpy as np
+from flask_cors import CORS  # Import CORS
 
-# Load the fine-tuned model and tokenizer
+# Load the fine-tuned model and tokenizer outside of the request to optimize performance
 model = TFBertForSequenceClassification.from_pretrained('model/sentiment_model')
 tokenizer = BertTokenizer.from_pretrained('model/sentiment_model')
 
 # Initialize Flask app
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 @app.route('/')
 def home():
@@ -18,6 +20,8 @@ def home():
 def predict():
     # Get the user input
     data = request.get_json()
+    
+    # Check if the required key is present
     if 'text' not in data:
         return jsonify({'error': 'Text input is required.'}), 400
 
@@ -27,7 +31,7 @@ def predict():
     try:
         inputs = tokenizer(text, return_tensors='tf', truncation=True, padding=True, max_length=128)
     except Exception as e:
-        return jsonify({'error': str(e)}), 400
+        return jsonify({'error': 'Tokenization error: ' + str(e)}), 400
 
     # Get model predictions
     try:
