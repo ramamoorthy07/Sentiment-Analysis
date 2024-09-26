@@ -1,0 +1,6 @@
+Input : The movie was good
+Output(Bot): The Sentiment is positive
+Input : I Totally Dislike this movie
+Output(Bot): The Sentiment is Negative
+Input : I was expecting more action, but it was mostly just talking.
+Output(Bot): The Sentiment is Negative
