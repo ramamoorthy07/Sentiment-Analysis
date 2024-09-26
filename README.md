@@ -31,7 +31,7 @@ Sentiment analysis is a natural language processing task that aims to determine 
 To set up the project, follow these steps:
 
 1. Clone the repository:
-git clone https://github.com/yourusername/sentiment-analysis-bert.git cd sentiment-analysis-bert
+git clone https://github.com/ramamoorthy07/Sentiment-Analysis.git
 
 
 2. Install the required packages:
